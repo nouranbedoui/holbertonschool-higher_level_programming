@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-for i in range(0, 10):
-    for j in range(1, 10):
-        if (str(i) + str(j)) == "89":
-            print("{}".format(str(i)+str(j)))
-        if i != j and i < j and (str(i) + str(j)) != "89":
-            print("{},".format(str(i) + str(j)), end=" ")
-            
+for i in range(10):
+    for j in range(i + 1, 10):
+        # This will print combinations in the desired format
+        if i == 8 and j == 9:
+            print(f"{i}{j}")
+        else:
+            print(f"{i}{j}", end=", ")
