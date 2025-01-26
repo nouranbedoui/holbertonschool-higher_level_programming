@@ -1,41 +1,42 @@
->>> print_square = __import__('4-print_square').print_square
->>> print_square(4)
-####
-####
-####
-####
+#!/usr/bin/python3
+"""
+This module provides a function that prints a squar of #
 
->>> print_square(10)
-##########
-##########
-##########
-##########
-##########
-##########
-##########
-##########
-##########
-##########
+Examples:
+>>> say_my_name("John", "Smith")
+My name is John Smith
+>>> say_my_name("Walter", "White")
+My name is Walter White
+>>> say_my_name("Bob")
+My name is Bob
+>>> say_my_name(12, "White")
+Traceback (most recent call last):
+    ...
+TypeError: first_name must be a string
+>>> say_my_name("John", 123)
+Traceback (most recent call last):
+    ...
+TypeError: last_name must be a string
+"""
 
->>> print_square(0)
 
->>> print_square(1)
-#
+def print_square(size):
+    """
+    Prints a square with the character #.
 
->>> try:
-...     print_square(-1)
-... except Exception as e:
-...     print(e)
-size must be >= 0
+    Args:
+    size (int): The size length of the square.
 
->>> try:
-...     print_square(3.5)
-... except Exception as e:
-...     print(e)
-size must be an integer
-
->>> try:
-...     print_square()
-... except TypeError as e:
-...     print(e)
-print_square() missing 1 required positional argument: 'size'
+    Raises:
+    TypeError: If size is not an integer
+    or if size is a float and is less than 0.
+    ValueError: If size is less than 0.
+    """
+    if type(size) is not int:
+        raise TypeError("size must be an integer")
+    if size < 0:
+        raise ValueError("size must be >= 0")
+    if type(size) is float and size < 0:
+        raise TypeError("size must be an integer")
+    for _ in range(size):
+        print("#" * size)
